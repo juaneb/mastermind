@@ -1,10 +1,10 @@
-package main.java.juaneb.mastermind.views;
+package usantatecla.mastermind.views;
 
-import main.java.juaneb.utils.WithConsoleView;
-import main.java.juaneb.mastermind.models.*;
+import usantatecla.mastermind.models.Color;
+import usantatecla.utils.WithConsoleView;
 
-public class ColorView extends WithConsoleView{
-
+class ColorView extends WithConsoleView{
+	
 	private static final char[] INITIALS = {'r', 'b', 'y', 'g', 'o', 'p'};
 
 	private Color color;
@@ -34,5 +34,4 @@ public class ColorView extends WithConsoleView{
 		this.console.write(ColorView.INITIALS[this.color.ordinal()]);
 	}
 
-    
 }

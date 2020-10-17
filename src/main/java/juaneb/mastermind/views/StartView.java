@@ -1,13 +1,12 @@
-package main.java.juaneb.mastermind.views;
+package usantatecla.mastermind.views;
 
-import main.java.juaneb.utils.WithConsoleView;
+import usantatecla.utils.WithConsoleView;
 
-public class StartView extends WithConsoleView{
-   
+class StartView extends WithConsoleView {
+
 	void interact() {
 		MessageView.TITLE.writeln();
 		new SecretCombinationView().writeln();
 	}
-    
-    
+
 }

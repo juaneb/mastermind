@@ -1,4 +1,4 @@
-package main.java.juaneb.mastermind.models;
+package usantatecla.mastermind.models;
 
 public enum Error {
 	DUPLICATED,
@@ -6,5 +6,3 @@ public enum Error {
 	WRONG_LENGTH;
 	
 }
-	
-

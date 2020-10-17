@@ -1,17 +1,18 @@
-package main.java.juaneb.mastermind.views;
+package usantatecla.mastermind.views;
 
-import main.java.juaneb.mastermind.models.*;
-import main.java.juaneb.utils.WithConsoleView;
+import usantatecla.mastermind.models.Result;
+import usantatecla.utils.WithConsoleView;
 
-public class ResultView extends WithConsoleView {
+class ResultView extends WithConsoleView {
+	
+	private Result result;
 
-    private Result result;
-
-    ResultView(Result result) {
+	ResultView(Result result) {
 		this.result = result;
 	}
 
-    void writeln() {
-        MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
-    }
+	void writeln() {
+		MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
+	}
+
 }

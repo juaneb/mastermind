@@ -1,47 +1,40 @@
-package main.java.juaneb.utils;
+package usantatecla.utils;
 
-public class YesNoDialog {
+public class YesNoDialog  extends WithConsoleView {
 
-	private static final char AFFIRMATIVE = 'y';
+	private static final char AFIRMATIVE = 'y';
+
 	private static final char NEGATIVE = 'n';
-	private static final String SUFFIX = "? (" +
-		YesNoDialog.AFFIRMATIVE+"/" + 
-		YesNoDialog.NEGATIVE+"): ";
-	private static final String MESSAGE = "The value must be '" + 
-		YesNoDialog.AFFIRMATIVE + "' or '" + 
-		YesNoDialog.NEGATIVE + "'";
-	private char answer;
+	
+	private static final String QUESTION = "? ("+YesNoDialog.AFIRMATIVE+"/"+YesNoDialog.NEGATIVE+"): ";
 
-	public boolean read(String message) {
-		assert message != null;
-		
-		Console console = Console.instance();
-		boolean error;
+	private static final String MESSAGE = "The value must be '" + YesNoDialog.AFIRMATIVE + "' or '"
+			+ YesNoDialog.NEGATIVE + "'";
+
+	public boolean read(String title) {
+		assert title != null;
+		char answer;
+		boolean ok;
 		do {
-			console.write(message);
-			this.answer = console.readChar(YesNoDialog.SUFFIX);
-			error = !this.isAfirmative() && !this.isNegative();
-			if (error) {
-				console.writeln(YesNoDialog.MESSAGE);
+			answer = this.console.readChar(title + YesNoDialog.QUESTION);
+			ok = YesNoDialog.isAfirmative(answer) || YesNoDialog.isNegative(answer);
+			if (!ok) {
+				this.console.writeln(YesNoDialog.MESSAGE);
 			}
-		} while (error);
-		return this.isAfirmative();
-	}
-
-	private boolean isAfirmative() {
-		return this.getAnswer() == YesNoDialog.AFFIRMATIVE;
-	}
-
-	private char getAnswer(){
-		return Character.toLowerCase(this.answer);
-	}
-
-	private boolean isNegative() {
-		return Character.toLowerCase(this.answer) == YesNoDialog.NEGATIVE;
+		} while (!ok);
+		return YesNoDialog.isAfirmative(answer);
 	}
 
 	public boolean read() {
 		return this.read("");
+	}
+
+	private static boolean isAfirmative(char answer) {
+		return Character.toLowerCase(answer) == YesNoDialog.AFIRMATIVE;
+	}
+
+	private static boolean isNegative(char answer) {
+		return Character.toLowerCase(answer) == YesNoDialog.NEGATIVE;
 	}
 
 }

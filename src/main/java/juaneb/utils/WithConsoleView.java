@@ -1,4 +1,4 @@
-package main.java.juaneb.utils;
+package usantatecla.utils;
 
 public abstract class WithConsoleView {
 

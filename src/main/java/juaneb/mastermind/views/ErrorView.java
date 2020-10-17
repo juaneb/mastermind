@@ -1,7 +1,7 @@
-package main.java.juaneb.mastermind.views;
+package usantatecla.mastermind.views;
 
-import main.java.juaneb.mastermind.models.Error;
-import main.java.juaneb.utils.WithConsoleView;
+import usantatecla.mastermind.models.Error;
+import usantatecla.utils.WithConsoleView;
 
 class ErrorView extends WithConsoleView {
 

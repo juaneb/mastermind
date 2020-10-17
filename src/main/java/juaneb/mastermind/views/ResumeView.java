@@ -1,23 +1,23 @@
-package main.java.juaneb.mastermind.views;
+package usantatecla.mastermind.views;
 
-import main.java.juaneb.mastermind.models.*;
-import main.java.juaneb.utils.WithConsoleView;
-import main.java.juaneb.utils.YesNoDialog;
+import usantatecla.mastermind.models.Game;
+import usantatecla.utils.YesNoDialog;
 
-public class ResumeView extends WithConsoleView {
+class ResumeView {
 
-    private Board board;
+	private Game game;
 
-	ResumeView(Board board) {
-		this.board = board;
+	ResumeView(Game game) {
+		this.game = game;
 	}
 
 	boolean interact() {
 		MessageView.RESUME.write();
 		boolean newGame = new YesNoDialog().read();
 		if (newGame) {
-			this.board = new Board();
+			this.game.clear();
 		}
 		return newGame;
 	}
+
 }

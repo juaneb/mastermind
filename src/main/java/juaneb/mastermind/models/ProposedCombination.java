@@ -1,4 +1,4 @@
-package main.java.juaneb.mastermind.models;
+package usantatecla.mastermind.models;
 
 import java.util.List;
 
@@ -16,10 +16,9 @@ public class ProposedCombination extends Combination {
 		}
 		return false;
 	}
-	
+
 	public List<Color> getColors() {
 		return this.colors;
 	}
-
 
 }

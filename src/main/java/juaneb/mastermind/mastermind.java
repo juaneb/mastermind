@@ -1,24 +1,25 @@
-package main.java.juaneb.mastermind;
+package usantatecla.mastermind;
 
-import main.java.juaneb.mastermind.models.*;
-import main.java.juaneb.mastermind.views.View;
+import usantatecla.mastermind.models.Game;
+import usantatecla.mastermind.views.View;
 
 public class Mastermind {
 
-	private Board board;
+	private Game game;
+	
 	private View view;
 
-	Mastermind() {
-		this.board = new Board();
-		this.view = new View (this.board);
+	private Mastermind() {
+		this.game = new Game();
+		this.view = new View(this.game);
 	}
 
 	private void play() {
 		this.view.interact();
 	}
-
+	
 	public static void main(String[] args) {
 		new Mastermind().play();
-	}
+	}	
 
 }
