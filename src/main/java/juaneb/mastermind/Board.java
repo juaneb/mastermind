@@ -1,38 +1,48 @@
-package main.java.juaneb.mastermind;
+package usantatecla.mastermind;
 
-import main.java.juaneb.utils.Console;
+import usantatecla.utils.Console;
 
+public class Board {
 
-class Board {
+  private static final int MAX_ATTEMPS = 10;
+  private SecretCombination secretCombination;
+  private ProposedCombination[] proposedCombinations;
+  private Result[] results;
+  private int attempts;
 
-	private final int MAX_ATTEMPS = 10;	
-	private int attempts;
-	private Result[] results;
-	protected SecretCombination secretCombination;
-	protected ProposedCombination[] proposedCombinations;
+  Board() {
+    this.secretCombination = new SecretCombination();
+    this.proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPS];
+    this.results = new Result[Board.MAX_ATTEMPS];
+    this.attempts = 0;
+  }
 
-	Board() {
+  public void writeln() {
+    Console.instance().writeln();
+    Message.ATTEMPTS.writeln(this.attempts);
+    this.secretCombination.writeln();
+    for (int i = 0; i < this.attempts; i++) {
+      this.proposedCombinations[i].write();
+      this.results[i].writeln();
+    }
+  }
 
-		this.results = new Result[this.MAX_ATTEMPS];
-		this.attempts = 0;
-	}
+  public void add(ProposedCombination proposedCombination) {
+    this.proposedCombinations[this.attempts] = proposedCombination;
+    this.results[this.attempts] = this.secretCombination.getResult(proposedCombination);
+    this.attempts++;
+  }
 
-	void write() {
-		Console.instance().writeln();
-		Message.ATTEMPTS.writeln(this.attempts);
-		this.secretCombination.writeln();		
-		for (int i = 0; i < this.attempts; i++) {
-			this.proposedCombinations[i].write();
-			this.results[i].writeln();
-		}
-	}
+  public boolean isFinished() {
+    return this.isWinner() || this.isLooser();
+  }
 
-	boolean isSuperedNumAttemptes() {
-		return this.attempts < this.MAX_ATTEMPS;
-	}
+  public boolean isWinner() {
+    return this.results[this.attempts-1].isWinner();
+  }
 
-	boolean isCombinationGuess() {		
-		return this.results[this.attempts-1].isWinner();
-	}
+  private boolean isLooser() {
+    return this.attempts == Board.MAX_ATTEMPS;
+  }
 
 }

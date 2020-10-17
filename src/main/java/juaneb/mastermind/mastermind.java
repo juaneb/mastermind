@@ -1,40 +1,40 @@
-package main.java.juaneb.mastermind;
+package usantatecla.mastermind;
 
-import main.java.juaneb.utils.YesNoDialog;
+import usantatecla.utils.YesNoDialog;
 
-class MasterMind {
+public class Mastermind {
 
-    private Board board;
-    private BreakerPlayer humanPlayer;
-    private MakerPlayer machinePlayer;
+	private Board board;
+	
+	public void play() {
+		do {
+			this.playGame();
+		} while (this.isResumedGame());
+	}
 
-    private void play() {
-        do {
-            this.playGame();
-        } while (this.isResumedGame());
-    }
+	private void playGame(){
+		Message.TITLE.writeln();
+		this.board = new Board();
+		this.board.writeln();
+		do {
+			ProposedCombination proposedCombination = new ProposedCombination();
+			proposedCombination.read();
+			this.board.add(proposedCombination);
+			this.board.writeln();
+		} while (!this.board.isFinished());
+		Message message = Message.LOOSER;
+		if (this.board.isWinner()){
+			message = Message.WINNER;
+		}
+		message.writeln();
+	}
 
-    private void playGame() {
-        this.board = new Board();
-        this.humanPlayer = new BreakerPlayer(this.board);
-        this.machinePlayer = new MakerPlayer(this.board);
-        
-        Message.TITLE.writeln();
-        this.machinePlayer.secretCombination();   
+	private boolean isResumedGame() {
+		return new YesNoDialog().read(Message.RESUME.toString());
+	}
 
-        do {
-            this.board.write();            
-            this.humanPlayer.proposedCombination();            
-            this.machinePlayer.giveResults();         
-        } while (!board.isSuperedNumAttemptes() & (!board.isCombinationGuess()));        
-    }
-
-    private boolean isResumedGame() {
-        return new YesNoDialog().read(Message.RESUME.toString());
-    }
-
-    public static void main(String[] args) {
-        new MasterMind().play();
-    }
+	public static void main(String[] args) {
+		new Mastermind().play();
+	}
 
 }

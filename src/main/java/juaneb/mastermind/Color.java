@@ -1,6 +1,6 @@
-package main.java.juaneb.mastermind;
+package usantatecla.mastermind;
 
-import main.java.juaneb.utils.Console;
+import usantatecla.utils.Console;
 
 enum Color {
 	RED('r'), 

@@ -1,5 +1,6 @@
-package main.java.juaneb.mastermind;
-import main.java.juaneb.utils.Console;
+package usantatecla.mastermind;
+
+import usantatecla.utils.Console;
 
 enum Message {
 	ATTEMPTS("#attempts attempt(s): "), 
