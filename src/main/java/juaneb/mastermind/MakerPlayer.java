@@ -3,12 +3,15 @@ package main.java.juaneb.mastermind;
 class MakerPlayer extends Player{
 
     MakerPlayer(Board board) {				
-		super(board);
+      super(board);      
     }
     
+    void secretCombination(){
+      this.board.secretCombination =  new SecretCombination();
+    }        
 
-    SecretCombination secretCombination(){
-        
-    }
-    
+    Result giveResults(){
+      return new Result(0, 0);
+    }        
+
 }

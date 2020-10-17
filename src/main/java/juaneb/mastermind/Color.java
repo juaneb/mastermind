@@ -1,6 +1,6 @@
 package main.java.juaneb.mastermind;
 
-//import  main.java.juaneb.utils.Console;
+import main.java.juaneb.utils.Console;
 
 enum Color {
 	RED('r'), 
@@ -11,19 +11,15 @@ enum Color {
 	PURPLE('p'),
 	NULL_COLOR;
 
-    
 	private char initial;
 
 	private Color() {
 	}
 
-    
 	private Color(char initial) {
 		this.initial = initial;
-    }
+	}
 
-    
-    /*
 	static String getInitials() {
 		String result = "";
 		for(int i=0; i<Color.length(); i++) {
@@ -56,7 +52,6 @@ enum Color {
 
 	boolean isNull(){
 		return this == Color.NULL_COLOR;
-    }
-    */
+	}
 	
 }

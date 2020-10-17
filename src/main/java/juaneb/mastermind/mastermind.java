@@ -16,13 +16,15 @@ class MasterMind {
 
     private void playGame() {
         this.board = new Board();
+        this.humanPlayer = new BreakerPlayer(this.board);
+        this.machinePlayer = new MakerPlayer(this.board);
         
-        Message.TITTLE.writeln();
+        Message.TITLE.writeln();
         this.machinePlayer.secretCombination();   
 
         do {
             this.board.write();            
-            this.humanPlayer.proposedCombination();
+            this.humanPlayer.proposedCombination();            
             this.machinePlayer.giveResults();         
         } while (!board.isSuperedNumAttemptes() & (!board.isCombinationGuess()));        
     }

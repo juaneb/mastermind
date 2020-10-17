@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Combination {
     
-    protected List<Posicion> posicion;
-    static final Combination NULL_COMBINATION = new Combination(); 
-      
-    Combination(){        
-        this.posicion = new ArrayList<Posicion>();
-    }    
-
+    protected List<Color> colors;
+    protected final int SIZE_COMBINATION = 4;
     
+	protected Combination (){
+		this.colors = new ArrayList<Color>();
+	}  
+
+
     
 }
