@@ -1,12 +1,9 @@
-package usantatecla.mastermind;
-
+package main.java.juaneb.mastermind.models;
 import java.util.Random;
-
-import usantatecla.utils.Console;
 
 import java.util.Collections;
 
-class SecretCombination extends Combination {
+public class SecretCombination extends Combination {
 
 	SecretCombination() {
 		super();
@@ -36,12 +33,6 @@ class SecretCombination extends Combination {
 		return new Result(blacks, whites - blacks);
 	}
 
-	void writeln() {
-		Console.instance().write("**** - ");
-		for (Color color : this.colors) {
-			color.write();
-		}
-		Console.instance().writeln();
-	}
+
 
 }

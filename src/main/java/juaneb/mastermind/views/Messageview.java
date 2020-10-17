@@ -1,8 +1,8 @@
-package usantatecla.mastermind;
+package main.java.juaneb.mastermind.views;
 
-import usantatecla.utils.Console;
+import main.java.juaneb.utils.Console;
 
-enum Message {
+enum MessageView {
 	ATTEMPTS("#attempts attempt(s): "), 
 	SECRET("*"), 
 	RESUME("Do you want to continue"), 
@@ -14,7 +14,7 @@ enum Message {
 
 	private String message;
 	
-	private Message(String message) {
+	private MessageView(String message) {
 		this.message = message;
 	}
 
@@ -27,13 +27,13 @@ enum Message {
 	}
 
 	void writeln(int attempts) {
-		assert this == Message.ATTEMPTS;
+		assert this == MessageView.ATTEMPTS;
 
 		Console.instance().writeln(this.message.replaceAll("#attempts", "" + attempts));
 	}
 
 	void writeln(int blacks, int whites) {
-		assert this == Message.RESULT;
+		assert this == MessageView.RESULT;
 
 		Console.instance().writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
 	}

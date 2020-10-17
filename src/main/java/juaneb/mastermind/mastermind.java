@@ -1,36 +1,20 @@
-package usantatecla.mastermind;
+package main.java.juaneb.mastermind;
 
-import usantatecla.utils.YesNoDialog;
+import main.java.juaneb.mastermind.models.*;
+import main.java.juaneb.mastermind.views.View;
 
 public class Mastermind {
 
 	private Board board;
-	
-	public void play() {
-		do {
-			this.playGame();
-		} while (this.isResumedGame());
-	}
+	private View view;
 
-	private void playGame(){
-		Message.TITLE.writeln();
+	Mastermind() {
 		this.board = new Board();
-		this.board.writeln();
-		do {
-			ProposedCombination proposedCombination = new ProposedCombination();
-			proposedCombination.read();
-			this.board.add(proposedCombination);
-			this.board.writeln();
-		} while (!this.board.isFinished());
-		Message message = Message.LOOSER;
-		if (this.board.isWinner()){
-			message = Message.WINNER;
-		}
-		message.writeln();
+		this.view = new View (this.board);
 	}
 
-	private boolean isResumedGame() {
-		return new YesNoDialog().read(Message.RESUME.toString());
+	private void play() {
+		this.view.interact();
 	}
 
 	public static void main(String[] args) {

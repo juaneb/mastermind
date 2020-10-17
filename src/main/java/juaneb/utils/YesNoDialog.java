@@ -1,4 +1,4 @@
-package usantatecla.utils;
+package main.java.juaneb.utils;
 
 public class YesNoDialog {
 
@@ -38,6 +38,10 @@ public class YesNoDialog {
 
 	private boolean isNegative() {
 		return Character.toLowerCase(this.answer) == YesNoDialog.NEGATIVE;
+	}
+
+	public boolean read() {
+		return this.read("");
 	}
 
 }

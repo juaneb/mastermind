@@ -1,8 +1,8 @@
-package usantatecla.mastermind;
+package main.java.juaneb.mastermind.models;
 
-import usantatecla.utils.Console;
+import main.java.juaneb.utils.Console;
 
-enum Color {
+public enum Color {
 	RED('r'), 
 	BLUE('b'), 
 	YELLOW('y'), 
