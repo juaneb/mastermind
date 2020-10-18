@@ -3,19 +3,11 @@ package main.java.juaneb.mastermind;
 import main.java.juaneb.mastermind.models.Game;
 import main.java.juaneb.mastermind.views.graphics.View;
 
-public class GraphicsMastermind {
+public class GraphicsMastermind extends Mastermind{
 
-	private Game game;
-	
-	private View view;
-
-	private GraphicsMastermind() {
-		this.game = new Game();
-		this.view = new View(this.game);
-	}
-
-	private void play() {
-		this.view.interact();
+	@Override
+	protected View createView(Game game) {
+		return new View(game);
 	}
 	
 	public static void main(String[] args) {
