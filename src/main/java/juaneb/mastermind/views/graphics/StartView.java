@@ -1,15 +1,15 @@
 package main.java.juaneb.mastermind.views.graphics;
 
-import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.controllers.Logic;
 
 class StartView  {
 
-	private StartController startController;
+	private Logic logic;
 
-	StartView(StartController startController) {
-		assert startController != null;
+	StartView(Logic logic) {
+		assert logic != null;
 		
-		this.startController = startController;
+		this.logic = logic;
 	}
 
 	void interact() {
