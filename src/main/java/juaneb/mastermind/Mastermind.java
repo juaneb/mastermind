@@ -1,6 +1,6 @@
 package main.java.juaneb.mastermind;
 
-import main.java.juaneb.mastermind.controllers.Controller;
+import main.java.juaneb.mastermind.controllers.UseCaseController;
 import main.java.juaneb.mastermind.controllers.Logic;
 import main.java.juaneb.mastermind.views.View;
 
@@ -18,7 +18,7 @@ public abstract class Mastermind {
     protected abstract View createView(Logic logic);
 
     protected void play() {
-        Controller controller;
+        UseCaseController controller;
         do {
             controller = this.logic.getController();
             if (controller != null) {

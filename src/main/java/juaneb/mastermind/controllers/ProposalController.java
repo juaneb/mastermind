@@ -8,7 +8,7 @@ import main.java.juaneb.mastermind.models.State;
 
 import java.util.List;
 
-public class ProposalController extends Controller {
+public class ProposalController extends UseCaseController {
 
 	private SecretCombination secretCombination;
 	private List<ProposedCombination> proposedCombinations;
@@ -46,6 +46,11 @@ public class ProposalController extends Controller {
 	
 	public boolean isWinner() {
 		return this.results.get(this.attempts-1).isWinner();
+	}
+
+	@Override
+	public void accept(ControllerVisitor controllerVisitor) {
+	  controllerVisitor.visit(this);
 	}
 
 

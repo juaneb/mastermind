@@ -1,12 +1,13 @@
 package main.java.juaneb.mastermind.views.console;
 
 import main.java.juaneb.mastermind.controllers.Logic;
-import main.java.juaneb.mastermind.controllers.Controller;
 import main.java.juaneb.mastermind.controllers.StartController;
 import main.java.juaneb.mastermind.controllers.ProposalController;
 import main.java.juaneb.mastermind.controllers.ResumeController;
+import main.java.juaneb.mastermind.controllers.UseCaseController;
+import main.java.juaneb.mastermind.controllers.ControllerVisitor;
 
-public class View extends main.java.juaneb.mastermind.views.View{	
+public class View extends main.java.juaneb.mastermind.views.View implements ControllerVisitor{	
 	
 	private StartView startView;
 	private ProposalView proposalView;
@@ -19,15 +20,21 @@ public class View extends main.java.juaneb.mastermind.views.View{
 	}
 
 	@Override
-	public void interact(Controller controller) {
-		if (controller instanceof StartController) {
-			this.startView.interact((StartController) controller);
-		} else {
-			if (controller instanceof ProposalController) {
-				this.proposalView.interact((ProposalController) controller);
-			} else {
-				this.resumeView.interact((ResumeController) controller);
-			}
-		}
+	public void interact(UseCaseController controller) {
+		controller.accept(this);
+	}
+
+	@Override
+	public void visit(StartController startController) {
+		this.startView.interact(startController);
+	}
+
+	@Override
+	public void visit(ProposalController proposalController) {
+		this.proposalView.interact(proposalController);	}
+
+	@Override
+	public void visit(ResumeController resumeController) {
+		this.resumeView.interact(resumeController);
 	}
 }

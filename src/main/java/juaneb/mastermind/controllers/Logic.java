@@ -17,7 +17,7 @@ public class Logic {
   private ProposalController proposalController;
   private ResumeController resumeController;
   private State state;
-  private Map<StateValue, Controller> controllers;
+  private Map<StateValue, UseCaseController> controllers;
 
   public Logic() {
     this.game = new Game();
@@ -25,7 +25,7 @@ public class Logic {
     this.proposalController = new ProposalController(this.game, this.state);
     this.resumeController = new ResumeController(this.game, this.state);
     this.state = new State();
-    this.controllers = new HashMap<StateValue, Controller>();
+    this.controllers = new HashMap<StateValue, UseCaseController>();
     this.controllers.put(StateValue.INITIAL, new StartController(this.game, this.state));
     this.controllers.put(StateValue.IN_GAME, new ProposalController(this.game, this.state));
     this.controllers.put(StateValue.RESUME, new ResumeController(this.game, this.state));
@@ -60,7 +60,9 @@ public class Logic {
 		return this.proposalController.isWinner();
   }
   
-  public Controller getController() {
+  public UseCaseController getController() {
     return this.controllers.get(this.state.getValueState());
   }
+
+  
 }
