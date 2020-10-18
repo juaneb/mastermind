@@ -4,6 +4,7 @@ import main.java.juaneb.mastermind.models.Game;
 import main.java.juaneb.mastermind.models.ProposedCombination;
 import main.java.juaneb.mastermind.models.SecretCombination;
 import main.java.juaneb.mastermind.models.Result;
+import main.java.juaneb.mastermind.models.State;
 
 import java.util.List;
 
@@ -14,14 +15,17 @@ public class ProposalController extends Controller {
 	private List<Result> results;
 	private int attempts;
 
-	public ProposalController(Game game) {
-		super(game);
-	}
+	public ProposalController(Game game, State state) {
+		super(game, state);
+	  }
+
+	  
 
 	public void addProposedCombination(ProposedCombination proposedCombination) {
 		this.proposedCombinations.add(proposedCombination);
 		this.results.add(this.secretCombination.getResult(proposedCombination));
 		this.attempts++;
+		this.state.next();
 	}
 
 	public int getAttempts() {

@@ -1,6 +1,7 @@
 package main.java.juaneb.mastermind.views.graphics;
 
 import main.java.juaneb.mastermind.controllers.Logic;
+import main.java.juaneb.mastermind.controllers.StartController;
 
 class StartView  {
 
@@ -10,10 +11,10 @@ class StartView  {
 		assert logic != null;
 		
 		this.logic = logic;
-	}
+	}	
 
-	void interact() {
-		MessageView.TITLE.writeln();
+	void interact(StartController startController) {
+		MessageView.TITLE.writeln();		
 		new SecretCombinationView().writeln();
 	}
 

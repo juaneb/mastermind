@@ -2,6 +2,7 @@ package main.java.juaneb.mastermind.views.console;
 
 import main.java.juaneb.mastermind.models.ProposedCombination;
 import main.java.juaneb.mastermind.controllers.Logic;
+import main.java.juaneb.mastermind.controllers.ProposalController;
 import main.java.juaneb.utils.WithConsoleView;
 
 class ProposalView extends  WithConsoleView {	
@@ -14,7 +15,8 @@ class ProposalView extends  WithConsoleView {
 		this.secretCombinationView = new SecretCombinationView();
 	}	
 
-	boolean interact() {
+	boolean interact(ProposalController proposalController) {
+		proposalController.next();
 		ProposedCombination proposedCombination = new ProposedCombination();
 		ProposedCombinationView proposedCombinationView = new ProposedCombinationView(proposedCombination);
 		proposedCombinationView.read();
@@ -35,5 +37,7 @@ class ProposalView extends  WithConsoleView {
 		}
 		return false;
 	}
+
+
 
 }

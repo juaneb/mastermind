@@ -4,18 +4,32 @@ import main.java.juaneb.mastermind.models.Game;
 import main.java.juaneb.mastermind.models.ProposedCombination;
 import main.java.juaneb.mastermind.models.Result;
 
+import main.java.juaneb.mastermind.models.State;
+import main.java.juaneb.mastermind.models.StateValue;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Logic {
 
   private Game game;
   private StartController startController;
   private ProposalController proposalController;
   private ResumeController resumeController;
+  private State state;
+  private Map<StateValue, Controller> controllers;
 
   public Logic() {
     this.game = new Game();
-    this.startController = new StartController(this.game);
-    this.proposalController = new ProposalController(this.game);
-    this.resumeController = new ResumeController(this.game);
+    this.startController = new StartController(this.game, this.state);
+    this.proposalController = new ProposalController(this.game, this.state);
+    this.resumeController = new ResumeController(this.game, this.state);
+    this.state = new State();
+    this.controllers = new HashMap<StateValue, Controller>();
+    this.controllers.put(StateValue.INITIAL, new StartController(this.game, this.state));
+    this.controllers.put(StateValue.IN_GAME, new ProposalController(this.game, this.state));
+    this.controllers.put(StateValue.RESUME, new ResumeController(this.game, this.state));
+    this.controllers.put(StateValue.EXIT, null);
   }
 
   public void resume() {
@@ -44,5 +58,9 @@ public class Logic {
 	
 	public boolean isWinner() {
 		return this.proposalController.isWinner();
-	}
+  }
+  
+  public Controller getController() {
+    return this.controllers.get(this.state.getValueState());
+  }
 }

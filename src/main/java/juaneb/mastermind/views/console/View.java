@@ -1,6 +1,10 @@
 package main.java.juaneb.mastermind.views.console;
 
 import main.java.juaneb.mastermind.controllers.Logic;
+import main.java.juaneb.mastermind.controllers.Controller;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.controllers.ResumeController;
 
 public class View extends main.java.juaneb.mastermind.views.View{	
 	
@@ -15,17 +19,15 @@ public class View extends main.java.juaneb.mastermind.views.View{
 	}
 
 	@Override
-	protected void start(){
-		this.startView.interact();
-	}
-
-	@Override
-	protected boolean play(){
-		return this.proposalView.interact();
-	}
-
-	@Override
-	protected boolean isNewGame(){
-		return this.resumeView.interact();
+	public void interact(Controller controller) {
+		if (controller instanceof StartController) {
+			this.startView.interact((StartController) controller);
+		} else {
+			if (controller instanceof ProposalController) {
+				this.proposalView.interact((ProposalController) controller);
+			} else {
+				this.resumeView.interact((ResumeController) controller);
+			}
+		}
 	}
 }
