@@ -1,22 +1,22 @@
 package main.java.juaneb.mastermind.views.console;
 
-import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.controllers.ResumeController;
 import main.java.juaneb.utils.YesNoDialog;
 import main.java.juaneb.utils.WithConsoleView;
 
 class ResumeView extends WithConsoleView{
 
-	private Game game;
+	private ResumeController resumeController;
 
-	ResumeView (Game game){
-		this.game = game;
-	}
+	public ResumeView(ResumeController resumeController){
+		this.resumeController = resumeController;
+	}	
 
 	boolean interact() {
 		MessageView.RESUME.write();
 		boolean newGame = new YesNoDialog().read();
 		if (newGame) {
-			this.game.clear();
+			this.resumeController.resume();
 		}
 		return newGame;
 	}

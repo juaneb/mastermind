@@ -1,26 +1,24 @@
 package main.java.juaneb.mastermind.views.graphics	;
 
-import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.controllers.ResumeController;
 import main.java.juaneb.utils.YesNoDialog;
+import main.java.juaneb.utils.WithConsoleView;
 
-class ResumeView {
+class ResumeView extends WithConsoleView{
 
-	private Game game;
-	/*JEB aquí metería todos los atributos propios de la interfaz gráfica*/
+	private ResumeController resumeController;
 
-	ResumeView(Game game) {
-		this.game = game;
-	}
+	public ResumeView(ResumeController resumeController){
+		this.resumeController = resumeController;
+	}	
 
 	boolean interact() {
 		MessageView.RESUME.write();
 		boolean newGame = new YesNoDialog().read();
 		if (newGame) {
-			this.game.clear();
+			this.resumeController.resume();
 		}
 		return newGame;
 	}
-
-	/*JEB aquí metería todos los métodos propios de la interfaz gráfica*/
 
 }

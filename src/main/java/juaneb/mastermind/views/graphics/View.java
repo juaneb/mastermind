@@ -1,6 +1,8 @@
 package main.java.juaneb.mastermind.views.graphics;
 
-import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.controllers.ResumeController;
 
 public class View extends main.java.juaneb.mastermind.views.View{
 	
@@ -8,11 +10,10 @@ public class View extends main.java.juaneb.mastermind.views.View{
 	private ProposalView proposalView;
 	private ResumeView resumeView;
 
-	public View(Game game) {
-		super(game);
-		this.startView = new StartView();
-		this.proposalView = new ProposalView(this.game);
-		this.resumeView = new ResumeView(this.game);
+	public View(StartController startController, ProposalController proposalController, ResumeController resumeController) {	
+		this.startView = new StartView(startController);
+		this.proposalView = new ProposalView(proposalController);
+		this.resumeView = new ResumeView(resumeController);
 	}
 
 	@Override

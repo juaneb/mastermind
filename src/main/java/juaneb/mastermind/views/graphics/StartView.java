@@ -1,14 +1,20 @@
 package main.java.juaneb.mastermind.views.graphics;
 
+import main.java.juaneb.mastermind.controllers.StartController;
+
 class StartView  {
 
-	/*JEB aquí metería todos los atributos propios de la interfaz gráfica. No heredo de WithConsoleView porque no voy a usar una interfaz de consola*/
+	private StartController startController;
+
+	StartView(StartController startController) {
+		assert startController != null;
+		
+		this.startController = startController;
+	}
 
 	void interact() {
 		MessageView.TITLE.writeln();
 		new SecretCombinationView().writeln();
 	}
-
-	/*JEB aquí metería todos los métodos propios de la interfaz gráfica*/
 
 }

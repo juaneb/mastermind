@@ -13,7 +13,7 @@ public class Result {
 		this.whites = whites;
 	}
 
-	boolean isWinner() {
+	public boolean isWinner() {
 		return this.blacks == Combination.getWidth();
 	}
 

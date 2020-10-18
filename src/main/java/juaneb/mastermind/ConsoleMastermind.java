@@ -1,13 +1,15 @@
 package main.java.juaneb.mastermind;
 
-import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.controllers.ResumeController;
+import main.java.juaneb.mastermind.controllers.StartController; 
 import main.java.juaneb.mastermind.views.console.View;
 
-public class ConsoleMastermind extends Mastermind{
+class ConsoleMastermind extends Mastermind{
 
 	@Override
-	protected View createView(Game game) {
-		return new View(game);
+	protected View createView(StartController startController, ProposalController proposalController, ResumeController resumeController){		
+		return new View(startController,proposalController, resumeController);
 	}
 
 	public static void main(String[] args) {

@@ -1,14 +1,7 @@
 package main.java.juaneb.mastermind.views;
 
-import main.java.juaneb.mastermind.models.Game;
-
 public abstract class View {
-	protected Game game;	
-
-	public View(Game game) {
-		this.game = game;		
-	}
-
+	
 	public void interact() {
 		boolean newGame;
 		do {

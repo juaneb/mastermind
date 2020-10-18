@@ -1,41 +1,39 @@
 package main.java.juaneb.mastermind.views.graphics;
 
-import main.java.juaneb.mastermind.models.Game;
 import main.java.juaneb.mastermind.models.ProposedCombination;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.utils.WithConsoleView;
 
-class ProposalView {
-
-	private Game game;	
+class ProposalView extends  WithConsoleView {	
+	
+	private ProposalController proposalController;
 	private SecretCombinationView secretCombinationView;
-	/*JEB aquí metería todos los atributos propios de la interfaz gráfica. No heredo de WithConsoleView porque no voy a usar una interfaz de consola*/
 
-	ProposalView(Game game) {
-		this.game = game;
+	public ProposalView(ProposalController proposalController){
+		this.proposalController = proposalController;
 		this.secretCombinationView = new SecretCombinationView();
-	}
+	}	
 
 	boolean interact() {
 		ProposedCombination proposedCombination = new ProposedCombination();
 		ProposedCombinationView proposedCombinationView = new ProposedCombinationView(proposedCombination);
 		proposedCombinationView.read();
-		this.game.addProposedCombination(proposedCombination);
-		//this.console.writeln();
-		MessageView.ATTEMPTS.writeln(this.game.getAttempts());
+		this.proposalController.addProposedCombination(proposedCombination);
+		this.console.writeln();
+		MessageView.ATTEMPTS.writeln(this.proposalController.getAttempts());
 		this.secretCombinationView.writeln();
-		for (int i = 0; i < this.game.getAttempts(); i++) {
-			new ProposedCombinationView(this.game.getProposedCombination(i)).write();
-			new ResultView(this.game.getResult(i)).writeln();
+		for (int i = 0; i < this.proposalController.getAttempts(); i++) {
+			new ProposedCombinationView(this.proposalController.getProposedCombination(i)).write();
+			new ResultView(this.proposalController.getResult(i)).writeln();
 		}
-		if (this.game.isWinner()) {
+		if (this.proposalController.isWinner()) {
 			MessageView.WINNER.writeln();
 			return true;
-		} else if (this.game.isLooser()) {
+		} else if (this.proposalController.isLooser()) {
 			MessageView.LOOSER.writeln();
 			return true;
 		}
 		return false;
 	}
-
-	/*JEB aquí metería todos los métodos propios de la interfaz gráfica*/
 
 }
