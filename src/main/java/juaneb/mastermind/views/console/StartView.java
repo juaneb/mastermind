@@ -1,6 +1,6 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.utils.WithConsoleView;
+import main.java.juaneb.utils.WithConsoleView;
 
 class StartView extends WithConsoleView {
 

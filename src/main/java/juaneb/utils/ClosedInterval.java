@@ -1,4 +1,4 @@
-package usantatecla.utils;
+package main.java.juaneb.utils;
 
 public class ClosedInterval {
 

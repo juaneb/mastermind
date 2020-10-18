@@ -1,6 +1,6 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.utils.Console;
+import main.java.juaneb.utils.Console;
 
 enum MessageView {
 	ATTEMPTS("#attempts attempt(s): "),
@@ -14,7 +14,9 @@ enum MessageView {
 
 	private String message;
 	
-	private Console console;
+	//JEB Consola viene vacío....
+	//private Console console;
+	private Console console = new Console();
 	
 	private MessageView(String message) {
 		this.message = message;
@@ -24,7 +26,8 @@ enum MessageView {
 		this.console.write(this.message);
 	}
 
-	void writeln() {
+	void writeln() {		
+		
 		this.console.writeln(this.message);
 	}
 

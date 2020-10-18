@@ -1,34 +1,28 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views;
 
-import usantatecla.mastermind.models.Game;
+import main.java.juaneb.mastermind.models.Game;
 
-public class View {
-
-	protected Game game;
-
-	private StartView startView;
-
-	private ProposalView proposalView;
-
-	private ResumeView resumeView;
+public abstract class View {
+	protected Game game;	
 
 	public View(Game game) {
-		this.game = game;
-		this.startView = new StartView();
-		this.proposalView = new ProposalView(this.game);
-		this.resumeView = new ResumeView(this.game);
+		this.game = game;		
 	}
 
 	public void interact() {
 		boolean newGame;
 		do {
-			this.startView.interact();
+			this.start();
 			boolean finished;
 			do {
-				finished = this.proposalView.interact();
+				finished = this.play();
 			} while (!finished);
-			newGame = this.resumeView.interact();
+			newGame = this.isNewGame();
 		} while (newGame);
 	}
+
+	protected abstract void start();
+	protected abstract boolean play();
+	protected abstract boolean isNewGame();
 
 }

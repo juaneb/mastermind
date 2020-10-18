@@ -1,4 +1,4 @@
-package usantatecla.utils;
+package main.java.juaneb.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

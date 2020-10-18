@@ -1,7 +1,7 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views.graphics;
 
-import usantatecla.mastermind.models.SecretCombination;
-import usantatecla.utils.WithConsoleView;
+import main.java.juaneb.mastermind.models.SecretCombination;
+import main.java.juaneb.utils.WithConsoleView;
 
 class SecretCombinationView extends WithConsoleView {
 

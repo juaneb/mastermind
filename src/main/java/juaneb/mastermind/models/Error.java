@@ -1,4 +1,4 @@
-package usantatecla.mastermind.models;
+package main.java.juaneb.mastermind.models;
 
 public enum Error {
 	DUPLICATED,

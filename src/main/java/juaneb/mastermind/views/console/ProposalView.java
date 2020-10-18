@@ -1,16 +1,15 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.models.ProposedCombination;
-import usantatecla.utils.WithConsoleView;
+import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.models.ProposedCombination;
+import main.java.juaneb.utils.WithConsoleView;
 
-class ProposalView extends WithConsoleView {
-
-	private Game game;
+class ProposalView extends  WithConsoleView {	
 	
+	private Game game;
 	private SecretCombinationView secretCombinationView;
 
-	ProposalView(Game game) {
+	public ProposalView(Game game) {
 		this.game = game;
 		this.secretCombinationView = new SecretCombinationView();
 	}

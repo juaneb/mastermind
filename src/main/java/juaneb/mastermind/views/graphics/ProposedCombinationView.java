@@ -1,13 +1,15 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views.graphics;
 
-import usantatecla.mastermind.models.Color;
-import usantatecla.mastermind.models.Error;
-import usantatecla.mastermind.models.Combination;
-import usantatecla.mastermind.models.ProposedCombination;
-import usantatecla.utils.WithConsoleView;
+import main.java.juaneb.mastermind.models.Color;
+import main.java.juaneb.mastermind.models.Error;
+import main.java.juaneb.mastermind.models.Combination;
+import main.java.juaneb.mastermind.models.ProposedCombination;
+import main.java.juaneb.utils.WithConsoleView;
 
 class ProposedCombinationView extends WithConsoleView {
 	
+	
+
 	private ProposedCombination proposedCombination;
 
 	ProposedCombinationView(ProposedCombination proposedCombination) {
