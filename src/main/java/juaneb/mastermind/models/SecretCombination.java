@@ -1,9 +1,11 @@
-package main.java.juaneb.mastermind.models;
+package usantatecla.mastermind.models;
 
 import java.util.Collections;
 import java.util.Random;
 
-public class SecretCombination extends Combination {
+import usantatecla.mastermind.types.Color;
+
+class SecretCombination extends Combination {
 
 	SecretCombination() {
 		for(Color color: Color.values()) {
@@ -16,7 +18,7 @@ public class SecretCombination extends Combination {
 		Collections.shuffle(this.colors);
 	}
 
-	public Result getResult(ProposedCombination proposedCombination) {
+	Result getResult(ProposedCombination proposedCombination) {
 		int blacks = 0;
 		for (int i = 0; i < this.colors.size(); i++) {
 			if (proposedCombination.contains(this.colors.get(i), i)) {

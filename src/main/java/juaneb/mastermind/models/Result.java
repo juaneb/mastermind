@@ -1,6 +1,6 @@
-package main.java.juaneb.mastermind.models;
+package usantatecla.mastermind.models;
 
-public class Result {
+class Result {
 
 	private int blacks = 0;
 
@@ -13,15 +13,15 @@ public class Result {
 		this.whites = whites;
 	}
 
-	public boolean isWinner() {
+	boolean isWinner() {
 		return this.blacks == Combination.getWidth();
 	}
 
-	public int getBlacks() {
+	int getBlacks() {
 		return this.blacks;
 	}
 
-	public int getWhites() {
+	int getWhites() {
 		return this.whites;
 	}
 

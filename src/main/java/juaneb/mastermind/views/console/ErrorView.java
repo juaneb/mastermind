@@ -1,23 +1,16 @@
-package main.java.juaneb.mastermind.views.console;
+package usantatecla.mastermind.views.console;
 
-import main.java.juaneb.mastermind.models.Error;
-import main.java.juaneb.utils.WithConsoleView;
+import usantatecla.mastermind.types.Error;
+import usantatecla.utils.Console;
 
-class ErrorView extends WithConsoleView {
-
-	private static final String[] MESSAGES = { 
-			"Repeated colors",
-			"Wrong colors, they must be: " + ColorView.allInitials(), 
-			"Wrong proposed combination length" };
-
-	private Error error;
+class ErrorView extends usantatecla.mastermind.views.ErrorView {
 
 	ErrorView(Error error) {
-		this.error = error;
+		super(error);
 	}
 	
 	void writeln() {
-		this.console.writeln(ErrorView.MESSAGES[this.error.ordinal()]);
-	}
+		new Console().writeln(ErrorView.MESSAGES[this.error.ordinal()]);
+	}	
 
 }

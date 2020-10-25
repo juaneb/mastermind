@@ -1,9 +1,9 @@
-package main.java.juaneb.mastermind.models;
+package usantatecla.mastermind.models;
 
 public enum StateValue {
-  INITIAL,
-  IN_GAME,
-  RESUME,
-  EXIT;
-  
+	INITIAL,
+	IN_GAME,
+	FINAL,
+	EXIT;
+	
 }

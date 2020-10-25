@@ -1,43 +1,37 @@
-package main.java.juaneb.mastermind.views.console;
+package usantatecla.mastermind.views.console;
 
-import main.java.juaneb.mastermind.models.ProposedCombination;
-import main.java.juaneb.mastermind.controllers.Logic;
-import main.java.juaneb.mastermind.controllers.ProposalController;
-import main.java.juaneb.utils.WithConsoleView;
+import java.util.List;
 
-class ProposalView extends  WithConsoleView {	
-	
-	private Logic logic;
-	private SecretCombinationView secretCombinationView;
+import usantatecla.mastermind.controllers.ProposalController;
+import usantatecla.mastermind.types.Color;
+import usantatecla.mastermind.types.Error;
+import usantatecla.mastermind.views.console.ErrorView;
+import usantatecla.utils.WithConsoleView;
+import usantatecla.mastermind.views.MessageView;
 
-	public ProposalView(Logic logic){
-		this.logic = logic;
-		this.secretCombinationView = new SecretCombinationView();
-	}	
+class ProposalView extends WithConsoleView {
 
-	boolean interact(ProposalController proposalController) {
-		proposalController.next();
-		ProposedCombination proposedCombination = new ProposedCombination();
-		ProposedCombinationView proposedCombinationView = new ProposedCombinationView(proposedCombination);
-		proposedCombinationView.read();
-		this.logic.addProposedCombination(proposedCombination);
+	void interact(ProposalController proposalController) {
+		Error error;
+		do {
+			List<Color> colors = new ProposedCombinationView(proposalController).read();
+			error = proposalController.addProposedCombination(colors);
+			if (error != null) {
+				new ErrorView(error).writeln();
+			}
+		} while (error != null);
 		this.console.writeln();
-		MessageView.ATTEMPTS.writeln(this.logic.getAttempts());
-		this.secretCombinationView.writeln();
-		for (int i = 0; i < this.logic.getAttempts(); i++) {
-			new ProposedCombinationView(this.logic.getProposedCombination(i)).write();
-			new ResultView(this.logic.getResult(i)).writeln();
+		new AttemptsView(proposalController).writeln();
+		new SecretCombinationView(proposalController).writeln();
+		for (int i = 0; i < proposalController.getAttempts(); i++) {
+			new ProposedCombinationView(proposalController).write(i);
+			new ResultView(proposalController).writeln(i);
 		}
-		if (this.logic.isWinner()) {
-			MessageView.WINNER.writeln();
-			return true;
-		} else if (this.logic.isLooser()) {
-			MessageView.LOOSER.writeln();
-			return true;
+		if (proposalController.isWinner()) {
+			this.console.writeln(MessageView.WINNER.getMessage());
+		} else if (proposalController.isLooser()) {
+			this.console.writeln(MessageView.LOOSER.getMessage());
 		}
-		return false;
 	}
-
-
 
 }

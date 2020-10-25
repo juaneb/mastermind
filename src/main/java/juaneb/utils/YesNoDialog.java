@@ -1,4 +1,4 @@
-package main.java.juaneb.utils;
+package usantatecla.utils;
 
 public class YesNoDialog  extends WithConsoleView {
 
@@ -23,10 +23,6 @@ public class YesNoDialog  extends WithConsoleView {
 			}
 		} while (!ok);
 		return YesNoDialog.isAfirmative(answer);
-	}
-
-	public boolean read() {
-		return this.read("");
 	}
 
 	private static boolean isAfirmative(char answer) {

@@ -1,19 +1,23 @@
-package main.java.juaneb.mastermind.views.console;
+package usantatecla.mastermind.views.console;
 
-import main.java.juaneb.mastermind.models.SecretCombination;
-import main.java.juaneb.utils.WithConsoleView;
+import usantatecla.mastermind.controllers.Controller;
+import usantatecla.mastermind.views.MessageView;
+import usantatecla.utils.WithConsoleView;
 
 class SecretCombinationView extends WithConsoleView {
-
-	SecretCombinationView() {
+	
+	private Controller controller;
+	
+	SecretCombinationView(Controller controller) {
 		super();
+		this.controller = controller;
 	}
-
+	
 	void writeln() {
-		for (int i = 0; i < SecretCombination.getWidth(); i++) {
-			MessageView.SECRET.write();
+		for (int i = 0; i < this.controller.getWidth(); i++) {
+			this.console.write(MessageView.SECRET.getMessage());
 		}
 		this.console.writeln();
 	}
-
+	
 }

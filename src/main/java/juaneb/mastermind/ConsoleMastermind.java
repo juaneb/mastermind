@@ -1,17 +1,15 @@
-package main.java.juaneb.mastermind;
+package usantatecla.mastermind;
 
-import main.java.juaneb.mastermind.controllers.Logic;
-import main.java.juaneb.mastermind.views.console.View;
+import usantatecla.mastermind.views.View;
+import usantatecla.mastermind.views.console.ConsoleView;
 
-class ConsoleMastermind extends Mastermind{
+public class ConsoleMastermind extends Mastermind{
 
-	@Override
-	protected View createView(Logic logic){		
-		return new View(logic);
+	protected View createView() {
+		return new ConsoleView();
 	}
-
+	
 	public static void main(String[] args) {
 		new ConsoleMastermind().play();
-	}	
-
+	}
 }

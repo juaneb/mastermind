@@ -1,21 +1,18 @@
-package main.java.juaneb.mastermind.views.console;
+package usantatecla.mastermind.views.console;
 
-import main.java.juaneb.mastermind.controllers.Logic;
-import main.java.juaneb.mastermind.controllers.StartController;
+import usantatecla.mastermind.controllers.StartController;
+import usantatecla.mastermind.views.MessageView;
+import usantatecla.utils.WithConsoleView;
 
-class StartView  {
-
-	private Logic logic;
-
-	StartView(Logic logic) {
-		assert logic != null;
-		
-		this.logic = logic;
-	}	
-
+class StartView extends WithConsoleView {
+	
+	private SecretCombinationView secretCombinationView;
+	
 	void interact(StartController startController) {
-		MessageView.TITLE.writeln();		
-		new SecretCombinationView().writeln();
+		startController.start();
+		this.console.writeln(MessageView.TITLE.getMessage());
+		this.secretCombinationView = new SecretCombinationView(startController);
+		this.secretCombinationView.writeln();
 	}
 
 }

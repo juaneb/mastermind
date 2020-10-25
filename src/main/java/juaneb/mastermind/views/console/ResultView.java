@@ -1,18 +1,21 @@
-package main.java.juaneb.mastermind.views.console;
+package usantatecla.mastermind.views.console;
 
-import main.java.juaneb.mastermind.models.Result;
-import main.java.juaneb.utils.WithConsoleView;
+import usantatecla.mastermind.controllers.ProposalController;
+import usantatecla.mastermind.views.MessageView;
+import usantatecla.utils.WithConsoleView;
 
 class ResultView extends WithConsoleView {
 	
-	private Result result;
-
-	ResultView(Result result) {
-		this.result = result;
+	private ProposalController proposalController;
+	
+	ResultView(ProposalController proposalController){
+		this.proposalController = proposalController;
 	}
 
-	void writeln() {
-		MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
+	void writeln(int i) {
+		this.console.writeln(MessageView.RESULT.getMessage()
+				.replaceFirst("#blacks", "" + this.proposalController.getBlacks(i))
+				.replaceFirst("#whites", "" + this.proposalController.getWhites(i)));
 	}
 
 }

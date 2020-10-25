@@ -1,22 +1,21 @@
-package main.java.juaneb.mastermind.controllers;
+package usantatecla.mastermind.controllers;
 
-import main.java.juaneb.mastermind.models.Game;
-import main.java.juaneb.mastermind.models.State;
+import usantatecla.mastermind.models.Game;
+import usantatecla.mastermind.models.State;
 
-public class StartController extends UseCaseController {
+public class StartController extends Controller {
 
-  public StartController(Game game, State state) {
-    super(game, state);
-  }
-
-  public void nextState() {    
-    this.state.next();
-  }
-
-  @Override
-  public void accept(ControllerVisitor controllerVisitor) {
-    controllerVisitor.visit(this);
-  }
-
+	public StartController(Game game, State state) {
+		super(game, state);
+	}
+	
+	public void start() {
+		this.state.next();
+	}
+	
+	@Override
+	public void accept(ControllersVisitor controllersVisitor) {
+		controllersVisitor.visit(this);
+	}
 
 }
