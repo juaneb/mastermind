@@ -1,13 +1,13 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JLabel;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.types.Color;
-import usantatecla.mastermind.views.ColorView;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.mastermind.views.ColorView;
 
 @SuppressWarnings("serial")
 class ProposedCombinationView extends JLabel {

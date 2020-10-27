@@ -1,8 +1,8 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
 import javax.swing.JLabel;
 
-import usantatecla.mastermind.views.MessageView;
+import main.java.juaneb.mastermind.views.MessageView;
 
 @SuppressWarnings("serial")
 class AttemptsView extends JLabel {

@@ -1,25 +1,24 @@
-package usantatecla.mastermind.controllers;
+package main.java.juaneb.mastermind.controllers;
 
-import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.models.State;
+import main.java.juaneb.mastermind.models.Session;
 
-public class ResumeController extends Controller {
+public class ResumeController extends Controller implements AcceptorController{
 
-	public ResumeController(Game game, State state) {
-		super(game, state);
-	}
+	public ResumeController(Session session) {
+		super(session);
+	  }
 	
 	public void resume(boolean newGame) {
 		if (newGame) {
-			this.game.clear();
-			this.state.reset();
+			this.session.getGame().clear();
+			this.session.getState().reset();
 		} else {
-			this.state.next();
+			this.session.getState().next();
 		}
 	}
 
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
+	public void accept(ControllerVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
 

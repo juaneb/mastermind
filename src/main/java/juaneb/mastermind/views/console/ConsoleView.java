@@ -1,11 +1,12 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.controllers.ResumeController;
-import usantatecla.mastermind.controllers.StartController;
-import usantatecla.mastermind.views.View;
+import main.java.juaneb.mastermind.controllers.AcceptorController;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.controllers.ResumeController;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.controllers.ControllerVisitor;
 
-public class ConsoleView extends View {
+public class ConsoleView extends main.java.juaneb.mastermind.views.View implements ControllerVisitor{
 	
 	private StartView startView;
 	
@@ -17,6 +18,11 @@ public class ConsoleView extends View {
 		this.startView = new StartView();
 		this.proposalView = new ProposalView();
 		this.resumeView = new ResumeView();
+	}
+
+	@Override
+	public void interact(AcceptorController controller) {
+		controller.accept(this);
 	}
 
 	

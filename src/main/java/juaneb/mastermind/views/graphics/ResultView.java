@@ -1,9 +1,9 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
 import javax.swing.JLabel;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.views.MessageView;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.views.MessageView;
 
 @SuppressWarnings("serial")
 class ResultView extends JLabel {

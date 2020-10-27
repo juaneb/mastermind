@@ -1,9 +1,9 @@
-package usantatecla.mastermind.models;
+package main.java.juaneb.mastermind.models;
 
 import java.util.Collections;
 import java.util.Random;
 
-import usantatecla.mastermind.types.Color;
+import main.java.juaneb.mastermind.types.Color;
 
 class SecretCombination extends Combination {
 

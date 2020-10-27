@@ -1,8 +1,8 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.controllers.StartController;
-import usantatecla.mastermind.views.MessageView;
-import usantatecla.utils.WithConsoleView;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.views.MessageView;
+import main.java.juaneb.utils.WithConsoleView;
 
 class StartView extends WithConsoleView {
 	
@@ -12,7 +12,7 @@ class StartView extends WithConsoleView {
 		startController.start();
 		this.console.writeln(MessageView.TITLE.getMessage());
 		this.secretCombinationView = new SecretCombinationView(startController);
-		this.secretCombinationView.writeln();
+		this.secretCombinationView.writeln();				
 	}
 
 }

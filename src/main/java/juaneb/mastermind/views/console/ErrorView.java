@@ -1,9 +1,9 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.types.Error;
-import usantatecla.utils.Console;
+import main.java.juaneb.mastermind.types.Error;
+import main.java.juaneb.utils.Console;
 
-class ErrorView extends usantatecla.mastermind.views.ErrorView {
+class ErrorView extends main.java.juaneb.mastermind.views.ErrorView {
 
 	ErrorView(Error error) {
 		super(error);

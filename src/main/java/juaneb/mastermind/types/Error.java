@@ -1,4 +1,4 @@
-package usantatecla.mastermind.types;
+package main.java.juaneb.mastermind.types;
 
 public enum Error {
 	

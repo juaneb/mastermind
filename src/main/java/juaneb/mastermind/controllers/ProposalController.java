@@ -1,17 +1,23 @@
-package usantatecla.mastermind.controllers;
+package main.java.juaneb.mastermind.controllers;
 
 import java.util.List;
 
-import usantatecla.mastermind.models.Combination;
-import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.models.State;
-import usantatecla.mastermind.types.Color;
-import usantatecla.mastermind.types.Error;
+import main.java.juaneb.mastermind.models.Combination;
+import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.mastermind.types.Error;
+import main.java.juaneb.mastermind.models.Session;
 
-public class ProposalController extends Controller {
+public class ProposalController extends Controller implements AcceptorController{
 
-	public ProposalController(Game game, State state) {
-		super(game, state);
+	public ActionController actionController;
+	public UndoController undoController;
+	public RedoController redoController;
+
+	public ProposalController(Session session) {
+		super(session);
+		this.actionController = new ActionController(session);
+		this.undoController = new UndoController(session);
+		this.redoController = new RedoController(session);
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
@@ -32,41 +38,61 @@ public class ProposalController extends Controller {
 			}
 		}
 		if (error == null){
-			this.game.addProposedCombination(colors);
-			if (this.game.isWinner() || this.game.isLooser()) {
-				this.state.next();
+			this.session.getGame().addProposedCombination(colors);
+			if (this.session.getGame().isWinner() || this.session.getGame().isLooser()) {
+				this.session.getState().next();
 			}
 		}
 		return error;	
 	}
 
 	public boolean isWinner() {
-		return this.game.isWinner();
+		return this.session.getGame().isWinner();
 	}
 
 	public boolean isLooser() {
-		return this.game.isLooser();
+		return this.session.getGame().isLooser();
 	}
 	
 	public int getAttempts() {
-		return this.game.getAttempts();
+		return this.session.getGame().getAttempts();
 	}
 
 	public List<Color> getColors(int position) {
-		return this.game.getColors(position);
+		return this.session.getGame().getColors(position);
 	}
 
 	public int getBlacks(int position) {
-		return this.game.getBlacks(position);
+		return this.session.getGame().getBlacks(position);
 	}
 
 	public int getWhites(int position) {
-		return this.game.getWhites(position);
+		return this.session.getGame().getWhites(position);
+	}
+
+	public void undo() {
+		this.undoController.undo();
+	}
+
+	public boolean undoable() {
+		return this.undoController.undoable();
+	}
+
+	public void redo() {
+		this.redoController.redo();
+	}
+
+	public boolean redoable() {
+		return this.redoController.redoable();
 	}
 	
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
+	public void accept(ControllerVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
+	}
+
+	public void register() {
+		this.session.register();
 	}
 
 }

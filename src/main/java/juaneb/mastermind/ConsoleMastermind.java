@@ -1,7 +1,7 @@
-package usantatecla.mastermind;
+package main.java.juaneb.mastermind;
 
-import usantatecla.mastermind.views.View;
-import usantatecla.mastermind.views.console.ConsoleView;
+import main.java.juaneb.mastermind.views.View;
+import main.java.juaneb.mastermind.views.console.ConsoleView;
 
 public class ConsoleMastermind extends Mastermind{
 

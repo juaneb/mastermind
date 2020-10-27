@@ -1,8 +1,8 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.views.MessageView;
-import usantatecla.utils.WithConsoleView;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.views.MessageView;
+import main.java.juaneb.utils.WithConsoleView;
 
 class ResultView extends WithConsoleView {
 	

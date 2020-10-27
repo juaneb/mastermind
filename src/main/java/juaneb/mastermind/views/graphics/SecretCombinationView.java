@@ -1,12 +1,12 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
 import java.awt.GridBagLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import usantatecla.mastermind.controllers.StartController;
-import usantatecla.mastermind.views.MessageView;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.views.MessageView;
 
 @SuppressWarnings("serial")
 class SecretCombinationView extends JPanel {

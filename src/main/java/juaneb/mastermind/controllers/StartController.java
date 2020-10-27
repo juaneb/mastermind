@@ -1,21 +1,22 @@
-package usantatecla.mastermind.controllers;
+package main.java.juaneb.mastermind.controllers;
 
-import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.models.State;
+import main.java.juaneb.mastermind.models.Session;
 
-public class StartController extends Controller {
+public class StartController extends Controller implements AcceptorController{
 
-	public StartController(Game game, State state) {
-		super(game, state);
+	public StartController(Session session) {
+		super(session);
 	}
 	
-	public void start() {
-		this.state.next();
+	public void start() {		
+		this.session.getState().next();
 	}
 	
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
+	public void accept(ControllerVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
+
+
 
 }

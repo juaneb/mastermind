@@ -1,8 +1,8 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
 import javax.swing.JOptionPane;
 
-import usantatecla.mastermind.views.MessageView;
+import main.java.juaneb.mastermind.views.MessageView;
 
 class ResumeDialog {
 

@@ -1,9 +1,9 @@
-package usantatecla.mastermind.models;
+package main.java.juaneb.mastermind.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import usantatecla.mastermind.types.Color;
+import main.java.juaneb.mastermind.types.Color;
 
 public class Game {
 
@@ -19,6 +19,10 @@ public class Game {
 
 	public Game() {
 		this.clear();
+	}
+
+	private Game(Game game) {
+		this();		
 	}
 
 	public void clear() {
@@ -62,5 +66,18 @@ public class Game {
 	public int getWidth() {
 		return Combination.getWidth();
 	}
+
+	public Game copy() {
+		return new Game(this);
+	}
+
+	public GameMemento createMemento() {
+        return new GameMemento(proposedCombinations.get(attempts));
+	}
+
+	public void set(GameMemento memento) {
+
+        
+    }
 
 }

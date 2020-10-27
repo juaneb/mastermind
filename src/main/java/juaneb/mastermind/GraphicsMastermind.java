@@ -1,7 +1,7 @@
-package usantatecla.mastermind;
+package main.java.juaneb.mastermind;
 
-import usantatecla.mastermind.views.View;
-import usantatecla.mastermind.views.graphics.GraphicsView;
+import main.java.juaneb.mastermind.views.View;
+import main.java.juaneb.mastermind.views.graphics.GraphicsView;
 
 public class GraphicsMastermind extends Mastermind{
 

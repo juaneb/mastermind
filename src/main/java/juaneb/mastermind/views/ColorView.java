@@ -1,6 +1,6 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views;
 
-import usantatecla.mastermind.types.Color;
+import main.java.juaneb.mastermind.types.Color;
 
 public class ColorView {
 	

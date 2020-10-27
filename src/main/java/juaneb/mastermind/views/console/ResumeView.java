@@ -1,8 +1,8 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.controllers.ResumeController;
-import usantatecla.mastermind.views.MessageView;
-import usantatecla.utils.YesNoDialog;
+import main.java.juaneb.mastermind.controllers.ResumeController;
+import main.java.juaneb.mastermind.views.MessageView;
+import main.java.juaneb.utils.YesNoDialog;
 
 class ResumeView {
 

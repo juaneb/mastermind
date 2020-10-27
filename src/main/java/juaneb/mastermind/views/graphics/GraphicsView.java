@@ -1,9 +1,10 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.controllers.ResumeController;
-import usantatecla.mastermind.controllers.StartController;
-import usantatecla.mastermind.views.View;
+import main.java.juaneb.mastermind.controllers.AcceptorController;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.controllers.ResumeController;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.views.View;
 
 public class GraphicsView extends View {
 
@@ -13,6 +14,10 @@ public class GraphicsView extends View {
 		this.gameView = new GameView();
 	}
 
+	@Override
+	public void interact(AcceptorController controller) {
+		//controller.accept(this);
+	}
 	
 	public void visit(StartController startController) {
 		this.gameView.interact(startController);

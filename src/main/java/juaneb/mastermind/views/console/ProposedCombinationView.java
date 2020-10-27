@@ -1,13 +1,13 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.types.Color;
-import usantatecla.mastermind.views.console.ColorView;
-import usantatecla.utils.WithConsoleView;
-import usantatecla.mastermind.views.MessageView;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.mastermind.views.console.ColorView;
+import main.java.juaneb.utils.WithConsoleView;
+import main.java.juaneb.mastermind.views.MessageView;
 
 class ProposedCombinationView extends WithConsoleView {
 	

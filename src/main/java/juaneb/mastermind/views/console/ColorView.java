@@ -1,9 +1,9 @@
-package usantatecla.mastermind.views.console;
+package main.java.juaneb.mastermind.views.console;
 
-import usantatecla.mastermind.types.Color;
-import usantatecla.utils.Console;
+import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.utils.Console;
 
-class ColorView extends usantatecla.mastermind.views.ColorView {
+class ColorView extends main.java.juaneb.mastermind.views.ColorView {
 
 	ColorView(Color color) {
 		super(color);

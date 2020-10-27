@@ -1,13 +1,17 @@
-package usantatecla.mastermind.models;
+package main.java.juaneb.mastermind.models;
 
 import java.util.List;
 
-import usantatecla.mastermind.types.Color;
+import main.java.juaneb.mastermind.types.Color;
 
 class ProposedCombination extends Combination {
 
 	ProposedCombination(List<Color> colors) {
 		this.colors = colors;
+	}
+
+	private ProposedCombination(ProposedCombination proposedCombination) {
+		super();
 	}
 
 	boolean contains(Color color, int position) {
@@ -21,6 +25,10 @@ class ProposedCombination extends Combination {
 			}
 		}
 		return false;
+	}
+
+	ProposedCombination copy() {
+		return new ProposedCombination(this);
 	}
 
 }

@@ -1,6 +1,6 @@
-package usantatecla.mastermind.views;
+package main.java.juaneb.mastermind.views;
 
-import usantatecla.mastermind.types.Error;
+import main.java.juaneb.mastermind.types.Error;
 
 public class ErrorView {
 

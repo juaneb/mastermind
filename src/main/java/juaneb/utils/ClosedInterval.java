@@ -1,4 +1,4 @@
-package usantatecla.utils;
+package main.java.juaneb.utils;
 
 public class ClosedInterval {
 
@@ -15,5 +15,4 @@ public class ClosedInterval {
 	public boolean includes(int value) {
 		return this.min <= value && value <= this.max;
 	}
-
 }

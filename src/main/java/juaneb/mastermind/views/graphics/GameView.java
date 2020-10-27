@@ -1,4 +1,4 @@
-package usantatecla.mastermind.views.graphics;
+package main.java.juaneb.mastermind.views.graphics;
 
 import java.awt.GridBagLayout;
 import java.util.List;
@@ -6,14 +6,13 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.controllers.StartController;
-import usantatecla.mastermind.types.Color;
-import usantatecla.mastermind.types.Error;
-import usantatecla.mastermind.views.ErrorView;
-import usantatecla.mastermind.views.MessageView;
-import usantatecla.mastermind.views.graphics.ProposedCombinationView;
-import usantatecla.mastermind.views.graphics.SecretCombinationView;
+import main.java.juaneb.mastermind.controllers.ProposalController;
+import main.java.juaneb.mastermind.controllers.StartController;
+import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.mastermind.types.Error;
+import main.java.juaneb.mastermind.views.ErrorView;
+import main.java.juaneb.mastermind.views.MessageView;
+
 
 @SuppressWarnings("serial")
 class GameView extends JFrame {
