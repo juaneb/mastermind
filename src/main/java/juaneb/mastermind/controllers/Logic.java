@@ -3,20 +3,30 @@ package main.java.juaneb.mastermind.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.java.juaneb.mastermind.types.StateValue;
-import main.java.juaneb.mastermind.models.Session;
+import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.models.State;
+import main.java.juaneb.mastermind.models.StateValue;
 
 public class Logic {
 	
-	protected Session session;	
-	protected Map<StateValue, AcceptorController> controllers;
+	private State state;
+	
+	private Game game;
+	
+	private Map<StateValue, Controller> controllers;
 		
-	protected Logic() {			
-		this.controllers = new HashMap<StateValue, AcceptorController>();	
+	public Logic() {
+		this.state = new State();
+		this.game = new Game();
+		this.controllers = new HashMap<StateValue, Controller>();
+		this.controllers.put(StateValue.INITIAL, new StartController(this.game, this.state));
+		this.controllers.put(StateValue.IN_GAME, new ProposalController(this.game, this.state));
+		this.controllers.put(StateValue.FINAL, new ResumeController(this.game, this.state));
+		this.controllers.put(StateValue.EXIT, null);
 	}
 	
-	public AcceptorController getController() {
-		return this.controllers.get(this.session.getValueState());
+	public Controller getController() {
+		return this.controllers.get(this.state.getValueState());
 	}
 	
 }

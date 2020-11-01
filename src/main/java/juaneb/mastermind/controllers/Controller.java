@@ -1,22 +1,23 @@
 package main.java.juaneb.mastermind.controllers;
 
-import main.java.juaneb.mastermind.models.Session;
-import main.java.juaneb.mastermind.types.StateValue;
+import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.models.State;
 
 public abstract class Controller {
 
-	protected Session session;
+	protected Game game;
+	
+	protected State state;
 
-	Controller(Session session) {
-		this.session = session;
+	Controller(Game game, State state) {
+		this.game = game;
+		this.state = state;
 	}
 	
 	public int getWidth() {
-		return this.session.getWidth();		
-	}	
-
-	public StateValue getValueState() {
-		return this.session.getValueState();
+		return this.game.getWidth();
 	}
+
+	public abstract void accept(ControllersVisitor controllersVisitor);
 
 }

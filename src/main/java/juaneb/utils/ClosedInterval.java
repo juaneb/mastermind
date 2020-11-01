@@ -15,4 +15,5 @@ public class ClosedInterval {
 	public boolean includes(int value) {
 		return this.min <= value && value <= this.max;
 	}
+
 }

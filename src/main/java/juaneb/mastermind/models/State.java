@@ -1,7 +1,5 @@
 package main.java.juaneb.mastermind.models;
 
-import main.java.juaneb.mastermind.types.StateValue;
-
 public class State {
 		
 	private StateValue stateValue;

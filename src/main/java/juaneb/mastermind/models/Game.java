@@ -21,10 +21,6 @@ public class Game {
 		this.clear();
 	}
 
-	private Game(Game game) {
-		this();		
-	}
-
 	public void clear() {
 		this.secretCombination = new SecretCombination();
 		this.proposedCombinations = new ArrayList<ProposedCombination>();
@@ -66,18 +62,5 @@ public class Game {
 	public int getWidth() {
 		return Combination.getWidth();
 	}
-
-	public Game copy() {
-		return new Game(this);
-	}
-
-	public GameMemento createMemento() {
-        return new GameMemento(proposedCombinations.get(attempts - 1));
-	}
-
-	public void set(GameMemento memento) {		
-		this.proposedCombinations.remove(getAttempts()-1);
-		this.attempts = getAttempts() - 1;		
-    }
 
 }

@@ -2,49 +2,71 @@ package main.java.juaneb.mastermind.controllers;
 
 import java.util.List;
 
+import main.java.juaneb.mastermind.models.Combination;
+import main.java.juaneb.mastermind.models.Game;
+import main.java.juaneb.mastermind.models.State;
 import main.java.juaneb.mastermind.types.Color;
 import main.java.juaneb.mastermind.types.Error;
-import main.java.juaneb.mastermind.models.Session;
 
-public abstract class ProposalController extends AcceptorController {
+public class ProposalController extends Controller {
 
-
-
-	public ProposalController(Session session) {
-		super(session);	
+	public ProposalController(Game game, State state) {
+		super(game, state);
 	}
 
-	public abstract Error addProposedCombination(List<Color> colors); 
+	public Error addProposedCombination(List<Color> colors) {
+		Error error = null;
+		if (colors.size() != Combination.getWidth()) {
+			error = Error.WRONG_LENGTH;
+		} else {
+			for (int i = 0; i < colors.size(); i++) {
+				if (colors.get(i) == null) {
+					error = Error.WRONG_CHARACTERS;
+				} else {
+					for (int j = i+1; j < colors.size(); j++) {
+						if (colors.get(i) == colors.get(j)) {
+							error = Error.DUPLICATED;
+						}
+					}
+				}				
+			}
+		}
+		if (error == null){
+			this.game.addProposedCombination(colors);
+			if (this.game.isWinner() || this.game.isLooser()) {
+				this.state.next();
+			}
+		}
+		return error;	
+	}
 
-	public abstract boolean isWinner();
+	public boolean isWinner() {
+		return this.game.isWinner();
+	}
 
-	public abstract boolean isLooser();
+	public boolean isLooser() {
+		return this.game.isLooser();
+	}
 	
-	public abstract int getAttempts();
+	public int getAttempts() {
+		return this.game.getAttempts();
+	}
 
-	public abstract List<Color> getColors(int position);
+	public List<Color> getColors(int position) {
+		return this.game.getColors(position);
+	}
 
-	public abstract int getBlacks(int position);
+	public int getBlacks(int position) {
+		return this.game.getBlacks(position);
+	}
 
-	public abstract int getWhites(int position);
-
-	public abstract void undo();
-
-	public abstract boolean undoable();
-
-	public abstract void redo();
-
-	public abstract boolean redoable(); 
-
-	public abstract void register();
-
-	public abstract void continueState();
+	public int getWhites(int position) {
+		return this.game.getWhites(position);
+	}
 	
 	@Override
 	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
-
-
 
 }

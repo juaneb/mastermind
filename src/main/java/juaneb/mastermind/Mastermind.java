@@ -1,23 +1,24 @@
 package main.java.juaneb.mastermind;
 
-import  main.java.juaneb.mastermind.controllers.AcceptorController;
-import  main.java.juaneb.mastermind.controllers.Logic;
-import  main.java.juaneb.mastermind.views.View;
+import main.java.juaneb.mastermind.controllers.Controller;
+import main.java.juaneb.mastermind.controllers.Logic;
+import main.java.juaneb.mastermind.views.View;
 
 public abstract class Mastermind {
 	
-	private Logic logic;	
+	private Logic logic;
+	
 	private View view;
 	
 	protected Mastermind() {
-		this.logic = this.createLogic();
-		this.view = new View();
+		this.logic = new Logic();
+		this.view = this.createView();
 	}
 	
-	protected abstract Logic createLogic();
+	protected abstract View createView();
 
 	protected void play() {
-		AcceptorController controller;
+		Controller controller;
 		do {
 			controller = this.logic.getController();
 			if (controller != null){

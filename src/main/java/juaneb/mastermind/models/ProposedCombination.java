@@ -10,10 +10,6 @@ class ProposedCombination extends Combination {
 		this.colors = colors;
 	}
 
-	private ProposedCombination(ProposedCombination proposedCombination) {
-		this.colors =  proposedCombination.get().colors;
-	}
-
 	boolean contains(Color color, int position) {
 		return this.colors.get(position) == color;
 	}
@@ -25,14 +21,6 @@ class ProposedCombination extends Combination {
 			}
 		}
 		return false;
-	}
-
-	ProposedCombination get() {
-		return this;
-	}
-
-	ProposedCombination copy() {
-		return new ProposedCombination(this);
 	}
 
 }
