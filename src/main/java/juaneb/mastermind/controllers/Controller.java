@@ -5,8 +5,7 @@ import main.java.juaneb.mastermind.models.State;
 
 public abstract class Controller {
 
-	protected Game game;
-	
+	protected Game game;	
 	protected State state;
 
 	Controller(Game game, State state) {
@@ -18,6 +17,6 @@ public abstract class Controller {
 		return this.game.getWidth();
 	}
 
-	public abstract void accept(ControllersVisitor controllersVisitor);
+	public abstract void control();
 
 }

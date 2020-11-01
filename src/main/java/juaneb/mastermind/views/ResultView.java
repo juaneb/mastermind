@@ -1,14 +1,13 @@
-package main.java.juaneb.mastermind.views.console;
+package main.java.juaneb.mastermind.views;
 
 import main.java.juaneb.mastermind.controllers.ProposalController;
-import main.java.juaneb.mastermind.views.MessageView;
 import main.java.juaneb.utils.WithConsoleView;
 
-class ResultView extends WithConsoleView {
+public class ResultView extends WithConsoleView {
 	
 	private ProposalController proposalController;
 	
-	ResultView(ProposalController proposalController){
+	public ResultView(ProposalController proposalController){
 		this.proposalController = proposalController;
 	}
 

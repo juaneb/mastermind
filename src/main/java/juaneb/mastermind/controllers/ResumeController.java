@@ -2,6 +2,7 @@ package main.java.juaneb.mastermind.controllers;
 
 import main.java.juaneb.mastermind.models.Game;
 import main.java.juaneb.mastermind.models.State;
+import main.java.juaneb.mastermind.views.ResumeView;
 
 public class ResumeController extends Controller {
 
@@ -19,8 +20,8 @@ public class ResumeController extends Controller {
 	}
 
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
-		controllersVisitor.visit(this);
+	public void control() {
+		this.resume(new ResumeView().read());
 	}
 
 }

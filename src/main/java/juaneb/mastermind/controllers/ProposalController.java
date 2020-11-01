@@ -1,18 +1,43 @@
 package main.java.juaneb.mastermind.controllers;
 
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import main.java.juaneb.mastermind.models.Combination;
 import main.java.juaneb.mastermind.models.Game;
 import main.java.juaneb.mastermind.models.State;
+
+import main.java.juaneb.mastermind.views.ProposedCombinationView;
+import main.java.juaneb.mastermind.views.ErrorView;
+import main.java.juaneb.mastermind.views.ProposalView;
+
+
 import main.java.juaneb.mastermind.types.Color;
 import main.java.juaneb.mastermind.types.Error;
 
 public class ProposalController extends Controller {
 
+	
 	public ProposalController(Game game, State state) {
 		super(game, state);
 	}
+
+
+	@Override
+	public void control() {
+		Error error;
+		do {
+			List<Color> colors = new ProposedCombinationView(this).read();
+			error = this.addProposedCombination(colors);
+			if (error != null) {
+				new ErrorView(error).writeln();
+			}
+		} while (error != null);		
+		new ProposalView().write(this);
+	}
+
+
 
 	public Error addProposedCombination(List<Color> colors) {
 		Error error = null;
@@ -62,11 +87,6 @@ public class ProposalController extends Controller {
 
 	public int getWhites(int position) {
 		return this.game.getWhites(position);
-	}
-	
-	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
-		controllersVisitor.visit(this);
-	}
+	}	
 
 }

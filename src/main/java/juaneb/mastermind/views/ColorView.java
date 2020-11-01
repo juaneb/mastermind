@@ -1,8 +1,9 @@
 package main.java.juaneb.mastermind.views;
 
 import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.utils.WithConsoleView;
 
-public class ColorView {
+public class ColorView extends WithConsoleView{
 	
 	public static final char[] INITIALS = {'r', 'b', 'y', 'g', 'o', 'p'};
 
@@ -31,6 +32,10 @@ public class ColorView {
 			}
 		}
 		return null;
+	}
+
+	public void write() {
+		this.console.write("Aquí tengo que pintar un coloooooooooor");
 	}
 
 }
