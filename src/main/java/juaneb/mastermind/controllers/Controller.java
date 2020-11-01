@@ -1,6 +1,7 @@
 package main.java.juaneb.mastermind.controllers;
 
 import main.java.juaneb.mastermind.models.Session;
+import main.java.juaneb.mastermind.types.StateValue;
 
 public abstract class Controller {
 
@@ -11,7 +12,11 @@ public abstract class Controller {
 	}
 	
 	public int getWidth() {
-		return this.session.getGame().getWidth();		
+		return this.session.getWidth();		
 	}	
+
+	public StateValue getValueState() {
+		return this.session.getValueState();
+	}
 
 }

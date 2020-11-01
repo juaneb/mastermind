@@ -11,7 +11,7 @@ class ProposedCombination extends Combination {
 	}
 
 	private ProposedCombination(ProposedCombination proposedCombination) {
-		super();
+		this.colors =  proposedCombination.get().colors;
 	}
 
 	boolean contains(Color color, int position) {
@@ -25,6 +25,10 @@ class ProposedCombination extends Combination {
 			}
 		}
 		return false;
+	}
+
+	ProposedCombination get() {
+		return this;
 	}
 
 	ProposedCombination copy() {

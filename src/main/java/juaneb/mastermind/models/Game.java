@@ -72,12 +72,12 @@ public class Game {
 	}
 
 	public GameMemento createMemento() {
-        return new GameMemento(proposedCombinations.get(attempts));
+        return new GameMemento(proposedCombinations.get(attempts - 1));
 	}
 
-	public void set(GameMemento memento) {
-
-        
+	public void set(GameMemento memento) {		
+		this.proposedCombinations.remove(getAttempts()-1);
+		this.attempts = getAttempts() - 1;		
     }
 
 }

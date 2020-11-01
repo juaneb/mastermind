@@ -6,16 +6,15 @@ import  main.java.juaneb.mastermind.views.View;
 
 public abstract class Mastermind {
 	
-	private Logic logic;
-	
+	private Logic logic;	
 	private View view;
 	
 	protected Mastermind() {
-		this.logic = new Logic();
-		this.view = this.createView();
+		this.logic = this.createLogic();
+		this.view = new View();
 	}
 	
-	protected abstract View createView();
+	protected abstract Logic createLogic();
 
 	protected void play() {
 		AcceptorController controller;

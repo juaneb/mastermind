@@ -1,8 +1,12 @@
 package main.java.juaneb.mastermind.controllers;
 
+import main.java.juaneb.mastermind.models.Session;
 
-public interface AcceptorController {
+public abstract class AcceptorController extends Controller {
 
-  void accept(ControllerVisitor controllerVisitor);
+  AcceptorController(Session session) {
+    super(session);
+  }
 
+  public abstract void accept(ControllersVisitor controllersVisitor);
 }

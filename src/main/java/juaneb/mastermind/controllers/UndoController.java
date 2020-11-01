@@ -1,19 +1,23 @@
 package main.java.juaneb.mastermind.controllers;
 
 import main.java.juaneb.mastermind.models.Session;
+import main.java.juaneb.mastermind.models.SessionImplementation;
 
 public class UndoController extends Controller {
 
-  UndoController(Session session) {
-    super(session);
-  }
+  private SessionImplementation sessionImplementation;
 
-  void undo() {
-    this.session.undo();
-  }
+  public UndoController(Session session) {
+		super(session);
+		this.sessionImplementation = ((SessionImplementation) this.session);
+	}
 
-  boolean undoable() {
-    return this.session.undoable();
-  }
+	public void undo() {
+		this.sessionImplementation.undo();
+	}
+
+	public boolean undoable() {
+		return this.sessionImplementation.undoable();
+	}
 
 }

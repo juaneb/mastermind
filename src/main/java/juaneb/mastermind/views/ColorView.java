@@ -1,6 +1,7 @@
 package main.java.juaneb.mastermind.views;
 
 import main.java.juaneb.mastermind.types.Color;
+import main.java.juaneb.utils.Console;
 
 public class ColorView {
 	
@@ -31,6 +32,10 @@ public class ColorView {
 			}
 		}
 		return null;
+	}
+
+	void write() {
+		new Console().write(ColorView.INITIALS[this.color.ordinal()]);
 	}
 
 }

@@ -12,8 +12,7 @@ class GameRegistry {
   GameRegistry(Game game) {
     this.game = game;
     this.mementos = new ArrayList<GameMemento>();
-    this.firstPrevious = 0;
-    this.mementos.add(this.firstPrevious, this.game.createMemento());   
+    this.firstPrevious = 0;    
   }
 
   void register() {
@@ -26,7 +25,7 @@ class GameRegistry {
 
   void undo() {
     this.firstPrevious++;
-    this.game.set(this.mementos.get(this.firstPrevious));
+    this.game.set(this.mementos.get(this.firstPrevious - 1));
   }
 
   void redo() {
@@ -35,7 +34,7 @@ class GameRegistry {
   }
 
   boolean isUndoable() {
-    return this.firstPrevious < this.mementos.size() - 1;
+    return this.firstPrevious < this.mementos.size();
   }
 
   boolean isRedoable() {

@@ -1,6 +1,7 @@
 package main.java.juaneb.mastermind.views;
 
 import main.java.juaneb.mastermind.types.Error;
+import main.java.juaneb.utils.Console;
 
 public class ErrorView {
 
@@ -18,5 +19,11 @@ public class ErrorView {
 	public String getMessage() {
 		return ErrorView.MESSAGES[this.error.ordinal()];
 	}
+
+	void writeln() {
+		Console.instance().writeln(ErrorView.MESSAGES[this.error.ordinal()]);		
+	}
+
+	
 	
 }

@@ -2,23 +2,18 @@ package main.java.juaneb.mastermind.controllers;
 
 import main.java.juaneb.mastermind.models.Session;
 
-public class ResumeController extends Controller implements AcceptorController{
+public abstract class ResumeController extends AcceptorController{
 
 	public ResumeController(Session session) {
 		super(session);
 	  }
 	
-	public void resume(boolean newGame) {
-		if (newGame) {
-			this.session.getGame().clear();
-			this.session.getState().reset();
-		} else {
-			this.session.getState().next();
-		}
-	}
+
+	public abstract void resume(boolean newGame);
+	
 
 	@Override
-	public void accept(ControllerVisitor controllersVisitor) {
+	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
 

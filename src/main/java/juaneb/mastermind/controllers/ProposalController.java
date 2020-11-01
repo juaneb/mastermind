@@ -2,97 +2,49 @@ package main.java.juaneb.mastermind.controllers;
 
 import java.util.List;
 
-import main.java.juaneb.mastermind.models.Combination;
 import main.java.juaneb.mastermind.types.Color;
 import main.java.juaneb.mastermind.types.Error;
 import main.java.juaneb.mastermind.models.Session;
 
-public class ProposalController extends Controller implements AcceptorController{
+public abstract class ProposalController extends AcceptorController {
 
-	public ActionController actionController;
-	public UndoController undoController;
-	public RedoController redoController;
+
 
 	public ProposalController(Session session) {
-		super(session);
-		this.actionController = new ActionController(session);
-		this.undoController = new UndoController(session);
-		this.redoController = new RedoController(session);
+		super(session);	
 	}
 
-	public Error addProposedCombination(List<Color> colors) {
-		Error error = null;
-		if (colors.size() != Combination.getWidth()) {
-			error = Error.WRONG_LENGTH;
-		} else {
-			for (int i = 0; i < colors.size(); i++) {
-				if (colors.get(i) == null) {
-					error = Error.WRONG_CHARACTERS;
-				} else {
-					for (int j = i+1; j < colors.size(); j++) {
-						if (colors.get(i) == colors.get(j)) {
-							error = Error.DUPLICATED;
-						}
-					}
-				}				
-			}
-		}
-		if (error == null){
-			this.session.getGame().addProposedCombination(colors);
-			if (this.session.getGame().isWinner() || this.session.getGame().isLooser()) {
-				this.session.getState().next();
-			}
-		}
-		return error;	
-	}
+	public abstract Error addProposedCombination(List<Color> colors); 
 
-	public boolean isWinner() {
-		return this.session.getGame().isWinner();
-	}
+	public abstract boolean isWinner();
 
-	public boolean isLooser() {
-		return this.session.getGame().isLooser();
-	}
+	public abstract boolean isLooser();
 	
-	public int getAttempts() {
-		return this.session.getGame().getAttempts();
-	}
+	public abstract int getAttempts();
 
-	public List<Color> getColors(int position) {
-		return this.session.getGame().getColors(position);
-	}
+	public abstract List<Color> getColors(int position);
 
-	public int getBlacks(int position) {
-		return this.session.getGame().getBlacks(position);
-	}
+	public abstract int getBlacks(int position);
 
-	public int getWhites(int position) {
-		return this.session.getGame().getWhites(position);
-	}
+	public abstract int getWhites(int position);
 
-	public void undo() {
-		this.undoController.undo();
-	}
+	public abstract void undo();
 
-	public boolean undoable() {
-		return this.undoController.undoable();
-	}
+	public abstract boolean undoable();
 
-	public void redo() {
-		this.redoController.redo();
-	}
+	public abstract void redo();
 
-	public boolean redoable() {
-		return this.redoController.redoable();
-	}
+	public abstract boolean redoable(); 
+
+	public abstract void register();
+
+	public abstract void continueState();
 	
 	@Override
-	public void accept(ControllerVisitor controllersVisitor) {
+	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
 	}
 
-	public void register() {
-		this.session.register();
-	}
+
 
 }
